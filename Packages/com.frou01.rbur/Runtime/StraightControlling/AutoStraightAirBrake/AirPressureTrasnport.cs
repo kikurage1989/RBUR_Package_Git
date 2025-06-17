@@ -4,7 +4,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
-public class AirPressureTrasnport : AbstractSignalTrasnport
+public class AirPressureTrasnport : AbstractSignalTrasnporter
 {
     protected override void Start()
     {

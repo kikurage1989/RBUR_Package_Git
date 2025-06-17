@@ -6,8 +6,5 @@ using VRC.Udon;
 
 public class SignalTrasnportManager : UdonSharpBehaviour
 {
-    void Start()
-    {
-        
-    }
+    //public AbstractSignalTrasnport[] SignalTrasnports;
 }
