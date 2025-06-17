@@ -60,7 +60,7 @@ public class CS5SignalTrasnport : AbstractSignalTrasnporter
         int id = f_r ? 1 : 0;
         if (connectedTransporter[id])
         {
-            StoredSignal.CopyTo(connectedCS5_TempSignal[id],0);
+            StoredSignal.CopyTo(connectedCS5_TempSignal[id],0);//自身のStoredSignalを相手のTempSignalへ転送
         }
         base.TransportSignal(f_r, nextHopping, direction);
     }
@@ -70,5 +70,6 @@ public class CS5SignalTrasnport : AbstractSignalTrasnporter
         base.ResetTemporary();
         NeutralSignal.CopyTo(TempSignal, 0);
         alreadyAppliedSingal = false;
+        //一時的なフラグ等を戻す
     }
 }
