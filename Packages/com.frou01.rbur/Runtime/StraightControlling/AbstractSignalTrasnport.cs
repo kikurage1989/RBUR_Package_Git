@@ -14,6 +14,7 @@ public class AbstractSignalTrasnporter : UdonSharpBehaviour
     //ChangeConnectionで相手のポインタを取得する
     //StartTransportSignalで伝送開始
     //SignalUpdateRecieveは外から呼び出された際に呼ばれ、ここで信号に書き込み
+    //※LateUpdateで信号送信は行わないこと※
 
 
     //Face true = +Z
