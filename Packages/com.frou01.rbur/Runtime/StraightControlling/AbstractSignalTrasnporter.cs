@@ -25,9 +25,9 @@ public class AbstractSignalTrasnporter : UdonSharpBehaviour
     [SerializeField]protected AbstractSignalTrasnporter[] connectedTransporter = new AbstractSignalTrasnporter[2];
     protected int[] localConnectedTransporterID = new int[2];
     [UdonSynced] protected int[] syncedConnectedTransporterID = new int[2];
-    protected bool[][] connectedTransporter_UpdateComingFace = new bool[2][];
-    protected int[][] connectedTransporter_UpdateHopping = new int[2][];
-    protected bool[][] connectedTransporter_UpdateDirection = new bool[2][];
+    protected bool[][] connectedTransporter_SignalComingFace = new bool[2][];
+    protected int[][] connectedTransporter_SignalHopping = new int[2][];
+    protected bool[][] connectedTransporter_SingalTransportDirection = new bool[2][];
     //protected Toggle[] connectedTransporter_eventProxy1 = new Toggle[2];
     public virtual void ChangeConnection(bool ConnectingFace, AbstractSignalTrasnporter newConnection,bool FaceofNewConnection)
     {
@@ -54,9 +54,9 @@ public class AbstractSignalTrasnporter : UdonSharpBehaviour
     public virtual void StoreConnectedPointer(int id)
     {
         //store pointer connectedTransporter[id].comingUpdateFace;
-        connectedTransporter_UpdateComingFace[id] = connectedTransporter[id].UpdateComingFace;
-        connectedTransporter_UpdateHopping[id] = connectedTransporter[id].UpdateHopping;
-        connectedTransporter_UpdateDirection[id] = connectedTransporter[id].UpdateDirection;
+        connectedTransporter_SignalComingFace[id] = connectedTransporter[id].SignalComingFace;
+        connectedTransporter_SignalHopping[id] = connectedTransporter[id].SignalHopping;
+        connectedTransporter_SingalTransportDirection[id] = connectedTransporter[id].SignalTransportDirection;
         //connectedTransporter_eventProxy1[id] = connectedTransporter[id].eventProxy1;//Event Call Hack
     }
     //---------------------------------------------------------------------------------------------ReferBlockEnd
@@ -70,9 +70,9 @@ public class AbstractSignalTrasnporter : UdonSharpBehaviour
     public int SignalTransporterID;
 
     //Temporary
-    public bool[] UpdateComingFace = new bool[1];
-    public int[] UpdateHopping = new int[1];
-    public bool[] UpdateDirection = new bool[1];
+    public bool[] SignalComingFace = new bool[1];
+    public int[] SignalHopping = new int[1];
+    public bool[] SignalTransportDirection = new bool[1];
 
     protected int safeCounter;
 
@@ -92,15 +92,15 @@ public class AbstractSignalTrasnporter : UdonSharpBehaviour
     {
         this.enabled = true;
         disableCounter = 10;
-        UpdateHopping[0] = 0;
-        TransportSignal(true, UpdateHopping[0], true);
-        TransportSignal(false, UpdateHopping[0], false);
+        SignalHopping[0] = 0;
+        TransportSignal(true, SignalHopping[0], true);
+        TransportSignal(false, SignalHopping[0], false);
     }
 
     public virtual void InvestSignal()
     {
         //UIコンポーネント経由でUBのPublicメソッドを呼び出してくる
-        if (Mathf.Abs(UpdateHopping[0]) > 400)
+        if (Mathf.Abs(SignalHopping[0]) > 400)
         {
             Debug.LogError("Infinite loop or too long train!");
             return;
@@ -108,7 +108,7 @@ public class AbstractSignalTrasnporter : UdonSharpBehaviour
         SignalUpdateRecieve();
         this.enabled = true;
         disableCounter = 10;
-        TransportSignal(!UpdateComingFace[0], UpdateHopping[0], UpdateDirection[0]);//来たのとは反対側へ信号を飛ばす
+        TransportSignal(!SignalComingFace[0], SignalHopping[0], SignalTransportDirection[0]);//来たのとは反対側へ信号を飛ばす
     }
 
     public virtual void SignalUpdateRecieve()
@@ -128,9 +128,9 @@ public class AbstractSignalTrasnporter : UdonSharpBehaviour
         if (connectedTransporter[id])
         {
             //connectedTransporter[id].UpdateComingFace[0] = connectedFace[id];
-            connectedTransporter_UpdateComingFace[id][0] = connectedFace[id];
-            connectedTransporter_UpdateHopping[id][0] = nextHopping + (direction ? 1 : -1);
-            connectedTransporter_UpdateDirection[id][0] = direction;
+            connectedTransporter_SignalComingFace[id][0] = connectedFace[id];
+            connectedTransporter_SignalHopping[id][0] = nextHopping + (direction ? 1 : -1);
+            connectedTransporter_SingalTransportDirection[id][0] = direction;
             //相手側に処理を移す
             connectedTransporter[id].InvestSignal();
         }
@@ -146,7 +146,7 @@ public class AbstractSignalTrasnporter : UdonSharpBehaviour
     protected virtual void ResetTemporary()
     {
         safeCounter = 0;
-        UpdateHopping[0] = -2147483647;
+        SignalHopping[0] = -2147483647;
     }
 
     int disableCounter = -1;

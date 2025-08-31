@@ -5,7 +5,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
-public class CS5SignalTrasnport : AbstractSignalTrasnporter
+public class KE50SignalTrasnport : AbstractSignalTrasnporter
 {
     protected sbyte[][] connectedCS5_TempSignal = new sbyte[2][];
     public override void StoreConnectedPointer(int id)
@@ -13,7 +13,7 @@ public class CS5SignalTrasnport : AbstractSignalTrasnporter
         base.StoreConnectedPointer(id);
 
         if (connectedTransporter[id].GetUdonTypeID() == this.GetUdonTypeID())//キャストチェックできねんか！？
-            connectedCS5_TempSignal[id] = ((CS5SignalTrasnport)connectedTransporter[id]).TempSignal;
+            connectedCS5_TempSignal[id] = ((KE50SignalTrasnport)connectedTransporter[id]).TempSignal;
         //伝送を受ける一時配列の参照を保存する
     }
 
