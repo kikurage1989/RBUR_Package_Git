@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: Air_hose_connector
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: c4da2263857955845a185c61eb72e0c0,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: c4da2263857955845a185c61eb72e0c0, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: d8dce8bcd171aa2429c4b99d059a7a25, type: 3}

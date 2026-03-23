@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: CS5SignalTrasnport
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 7565bfc2556cbc54ba32b27932a5ded9,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 7565bfc2556cbc54ba32b27932a5ded9, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 6ac201ac324f64847bd4f1f59469cc00, type: 3}

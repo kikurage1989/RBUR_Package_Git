@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: AbstractSignalProcessor
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: bd9b3f8e15a73f040bbab6176a62c9f5,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: bd9b3f8e15a73f040bbab6176a62c9f5, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 1cf1117a22e025745ae97812fae0f886, type: 3}

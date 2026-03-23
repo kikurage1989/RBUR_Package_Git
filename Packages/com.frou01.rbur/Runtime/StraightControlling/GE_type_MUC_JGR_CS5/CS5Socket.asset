@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: CS5Socket
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 4e3355f3ea771d744a0e76d60386926c,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 4e3355f3ea771d744a0e76d60386926c, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 66a1291b196b33d45a3cc19b621ef70e, type: 3}
